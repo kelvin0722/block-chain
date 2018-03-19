@@ -1,0 +1,11 @@
+{
+  "name": "block-chain",
+  "version": "1.0.0",
+  "description": "a block chain implementation using javascript",
+  "main": "index.js",
+  "author": "kelvin Mwangi",
+  "license": "MIT",
+  "dependencies": {
+    "crypto-js": "^3.1.9-1"
+  }
+}
