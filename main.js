@@ -31,6 +31,20 @@ class BlockChain{
         newBlock.hash = newBlock.calculateHash()
         return this.chain.push(newBlock)
     }
+    isBlockChainValid(){
+        for (let i =1;i < this.chain.length; i++){
+            const currentBlock = this.chain [i]
+            const previousBlock = this.chain [i -1]
+
+            if(currentBlock.hash !== currentBlock.calculateHash() ){
+                return false
+            }
+            if(currentBlock.previousHash !== previousBlock.hash){
+                return false
+            }
+        }
+        return true
+    }
 }
 let newBlockChain = new BlockChain()
 newBlockChain.createGenisisBlock()
@@ -38,4 +52,9 @@ newBlockChain.addNewBlock(new Block(1,"20/03/2018",{amount:4}))
 newBlockChain.addNewBlock(new Block(2,"21/03/2018",{amount:6}))
 newBlockChain.addNewBlock(new Block(3,"22/03/2018",{amount:8}))
 
-console.log(JSON.stringify(newBlockChain,null,4));
+// trying to tamper with the data
+newBlockChain.chain[1].data = {amount:10}
+newBlockChain.chain[1].hash = newBlockChain.chain[1].calculateHash()
+console.log("Is chain valid?"+newBlockChain.isBlockChainValid())
+
+//console.log(JSON.stringify(newBlockChain,null,4));
