@@ -1,2 +1,3 @@
-# BLOCK CHAIN IMPLEMENTATION USING NODE JS
+# Block Chain
+A node js implementation of a block chain
 
