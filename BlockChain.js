@@ -6,7 +6,7 @@ class BlockChain{
     }
 
     createGenisisBlock(){
-        return new Block(0,"19/03/2018","This is the Genesis Block","0")
+        return new Block("19/03/2018","This is the Genesis Block","0")
     }
     getLatestBlock(){
         return this.chain[this.chain.length - 1]
